@@ -11,6 +11,11 @@ RUN cd /tmp/ && \
     mkdir -p /var/lib/mediawiki && \
     mv mediawiki-*/* /var/lib/mediawiki
 
+RUN wget -q http://archive.ubuntu.com/ubuntu/pool/universe/t/tini/tini_0.18.0-1_amd64.deb && \
+    dpkg -i "tini_0.18.0-1_amd64.deb" && \
+    ln -s /usr/bin/tini /usr/local/bin/tini && \
+    rm -f "tini_0.18.0-1_amd64.deb"
+
 COPY ./scripts /scripts
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/scripts/bootstrap.sh"]
