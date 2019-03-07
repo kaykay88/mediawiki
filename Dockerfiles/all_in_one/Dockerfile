@@ -11,6 +11,6 @@ RUN cd /tmp/ && \
     mkdir -p /var/lib/mediawiki && \
     mv mediawiki-*/* /var/lib/mediawiki
 
-COPY ../scripts /scripts
+COPY ./scripts /scripts
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/scripts/bootstrap.sh"]
