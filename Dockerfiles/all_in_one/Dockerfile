@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qqy; \
     apt-get install apache2 mysql-server php php-mysql libapache2-mod-php php-xml php-mbstring imagemagick git wget -qqy && \
-    chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
+    
 
 #Get MediaWiki
 
