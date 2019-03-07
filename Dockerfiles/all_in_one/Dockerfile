@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 RUN apt-get update -qqy; \
-    apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-php5 imagemagick git -qqy
+    apt-get install apache2 mysql-server php php-mysql libapache2-mod-php php-xml php-mbstring imagemagick git -qqy
 
 #Get MediaWiki
 
