@@ -9,4 +9,5 @@ RUN apt-get update -qqy; \
 RUN cd /tmp/ && \
     wget https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.0.tar.gz && \
     tar -xvzf /tmp/mediawiki-*.tar.gz && \
+    mkdir -p /var/lib/mediawiki && \
     mv mediawiki-*/* /var/lib/mediawiki
