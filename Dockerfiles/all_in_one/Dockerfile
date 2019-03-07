@@ -17,5 +17,6 @@ RUN wget -q http://archive.ubuntu.com/ubuntu/pool/universe/t/tini/tini_0.18.0-1_
     rm -f "tini_0.18.0-1_amd64.deb"
 
 COPY ./scripts /scripts
+RUN chmod +x /scripts/*
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/scripts/bootstrap.sh"]
