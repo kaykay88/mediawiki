@@ -9,6 +9,8 @@ do
     nc -z localhost 80
 done
 ln -s /var/lib/mediawiki /var/www/html/mediawiki
+mysql_usr_pwd=$(cat /run/secrets/mysql_user)
+sed -i "s/#PASSWORD/$mysql_usr_pwd/g" /config/LocalSettings.php
 ln -s /config/LocalSettings.php /var/www/html/mediawiki/LocalSettings.php
 
 while true

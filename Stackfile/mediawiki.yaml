@@ -13,7 +13,6 @@ secrets:
 
 
 services:
-## Elastic search and fluentd global services
  mysql:
   image: local/mysql:latest
   networks:
@@ -22,8 +21,12 @@ services:
     replicas: 1
   volumes:
    - /Users/i326049/Documents/GitHub/persistence/mysql:/var/lib/mysql
-  environment:
-   - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+  secrets:
+    - source: mysql_user
+      target: mysql_user
+      uid: '103'
+      gid: '103'
+      mode: 0440
  mediawiki:
   image: local/mediawiki:latest
   networks:
@@ -32,6 +35,12 @@ services:
     replicas: 1
   volumes:
    - /Users/i326049/Documents/GitHub/persistence/mediawiki:/config
+  secrets:
+    - source: mysql_user
+      target: mysql_user
+      uid: '103'
+      gid: '103'
+      mode: 0440
   ports:
    - 80:80
 

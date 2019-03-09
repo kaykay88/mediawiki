@@ -14,7 +14,7 @@ RUN wget -q http://archive.ubuntu.com/ubuntu/pool/universe/t/tini/tini_0.18.0-1_
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*
 
-
+RUN echo "1" > /scripts/config_mysql
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/scripts/bootstrap.sh"]
 
