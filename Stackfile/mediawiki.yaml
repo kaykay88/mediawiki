@@ -8,7 +8,6 @@ volumes:
   mysql:
 
 services:
-## Elastic search and fluentd global services
  mysql:
   image: local/mysql:latest
   networks:
